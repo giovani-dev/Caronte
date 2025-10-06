@@ -1,0 +1,78 @@
+# Dependabot configuration for automatic dependency updates
+# See documentation: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Python dependencies via Poetry
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 10
+    assignees:
+      - "giovani-dev"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "python"
+    # Groups related updates into single PRs
+    groups:
+      aws-dependencies:
+        patterns:
+          - "boto3"
+          - "botocore"
+      azure-dependencies:
+        patterns:
+          - "azure-*"
+      gcp-dependencies:
+        patterns:
+          - "google-*"
+      dev-dependencies:
+        patterns:
+          - "pytest*"
+          - "mypy"
+          - "black"
+          - "ruff"
+          - "bandit"
+          - "safety"
+          - "pre-commit"
+          - "tox"
+    # Ignore specific updates if needed
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    # Allow only security updates for specific packages
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+        update-types: ["security"]
+
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:30"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "giovani-dev"
+    assignees:
+      - "giovani-dev"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
