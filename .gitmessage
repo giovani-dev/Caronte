@@ -1,0 +1,34 @@
+# <type>[optional scope]: <description>
+#
+# [optional body]
+#
+# [optional footer(s)]
+
+# Types:
+#   feat:     Nova funcionalidade
+#   fix:      Correção de bug
+#   docs:     Mudanças apenas na documentação
+#   style:    Formatação, sem mudanças funcionais
+#   refactor: Refatoração sem mudanças funcionais
+#   perf:     Melhoria de performance
+#   test:     Adição/correção de testes
+#   chore:    Mudanças no build, dependências, etc.
+#   ci:       Mudanças no CI/CD
+#   revert:   Reverter commit anterior
+#
+# Scopes (opcionais):
+#   aws, azure, gcp, storage, functions, queue, auth, config, deps
+#
+# Exemplos:
+#   feat(aws): adiciona suporte ao S3 Glacier
+#   fix(gcp): corrige timeout no Cloud Storage
+#   docs: atualiza guia de instalação
+#   test(azure): adiciona testes para Blob Storage
+#   chore(deps): atualiza boto3 para v1.29.0
+#
+# Regras:
+#   - Use imperativo ("adiciona" não "adicionado")
+#   - Primeira letra minúscula
+#   - Sem ponto final na descrição
+#   - Máximo 50 caracteres na primeira linha
+#   - Corpo com máximo 72 caracteres por linha
