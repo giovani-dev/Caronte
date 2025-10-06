@@ -51,7 +51,6 @@ updates:
     allow:
       - dependency-type: "direct"
       - dependency-type: "indirect"
-        update-types: ["security"]
 
   # GitHub Actions updates
   - package-ecosystem: "github-actions"
@@ -60,10 +59,8 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "06:30"
-      timezone: "UTC"
+      timezone: "America/Sao_Paulo"
     open-pull-requests-limit: 5
-    reviewers:
-      - "giovani-dev"
     assignees:
       - "giovani-dev"
     commit-message:
